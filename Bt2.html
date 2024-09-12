@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      
+        
+    
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form class="frm">
+            <p>Product Name:</p>
+            <input type="text" name="pname" id="pname">
+
+            <p>Product Quantity:</p>
+            <input type="number" name="pqty" id="pqty">
+
+            <p>Product Price:</p>
+            <input type="number" name="price" id="price">
+        </form>
+        <button class="button" type="button" onclick="add()">Add</button>
+        <!-- <button type="button" onclick="total()">Total</button> -->
+        <table id="table">
+            <tr>
+                <th>No</th>
+                <th>Name</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Sub-total</th>
+            </tr>
+            <tr>
+                <td colspan="4" >Total</td>
+                <td id="total"></td>
+            </tr>
+        </table>
+    </div>
+    <script>
+        var id=0;
+        var sumtotal=0;
+        function add(){
+            id++;
+            var pname = document.getElementById("pname").value;
+            var qty = document.getElementById("pqty").value;
+            var price = document.getElementById("price").value;
+            var sub = qty * price ;
+            sumtotal+=sub;
+            var row = "<tr>";
+                row+="<td>"+id +"</td>";
+                row+="<td>"+pname+"</td>";
+                row+="<td>"+qty+"</td>";
+                row+="<td>"+price+"</td>";
+                row+="<td>"+sub +"</td>";
+            row+="</tr>";
+                document.getElementById("table").innerHTML+=row;
+                document.getElementById("total").innerHTML = sumtotal;
+
+      
+
+        }
+            
+    </script>
+</body>
+</html>
